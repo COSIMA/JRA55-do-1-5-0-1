@@ -26,16 +26,20 @@ def update(delete_partial=False,
                 print('--- skipping', outfn, '(already exists)')
             elif os.path.exists(outfntmp):
                 if delete_partial:
-                    print('### DELETING', outfn)
+                    print('### DELETING', outfntmp)
                     os.remove(outfntmp)
                 else:
                     print('*** skipping', outfn, '(already downloading)')
             else:
                 if not delete_partial:
                     os.makedirs(os.path.dirname(outfn), exist_ok=True)
+                    open(outfntmp, 'w').close()  # urlretrieve is slow, so make empty outfntmp file to prevent a parallel job downloading the same file
                     print('downloading', outfn)
                     urlretrieve(urljoin(sourceurl, href), outfntmp)
-                    os.rename(outfntmp, outfn)
+                    if os.path.exists(outfn):
+                        print('ERROR: file exists:', outfn)
+                    else:
+                        os.rename(outfntmp, outfn)
     print('done')
 
 if __name__ == '__main__':
