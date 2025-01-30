@@ -1,3 +1,7 @@
+**NOTE:** this is now redundant, as JRA55v1.5.0 and v1.5.0.1 are combined in v1.6.0 available from
+`/g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0`
+see https://github.com/COSIMA/access-om3/issues/205#issuecomment-2597118474
+
 # JRA55-do v1.5.0.1
 
 JRA55-do v1.5.0.1 is an atmospheric dataset designed for forcing ocean and sea ice models, available from https://climate.mri-jma.go.jp/pub/ocean/JRA55-do/
